@@ -1,0 +1,203 @@
+/* ===== Paleta ===== */
+:root {
+    --noche: #000020;      /* fondo de la página e inputs */
+    --azul: #171a4a;       /* tarjetas y formulario */
+    --indigo: #2f2c79;     /* bordes */
+    --arena: #e8c39e;      /* títulos, etiquetas y botón */
+    --crema: #f5e1ce;      /* texto */
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--noche);
+    color: var(--crema);
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    margin: 0;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+}
+
+/* ===== Estado de la conexión ===== */
+.status {
+    margin: 0 0 1rem;
+    text-align: center;
+    font-size: .9rem;
+    color: rgba(245, 225, 206, .7);
+}
+
+.status.error {
+    color: var(--arena);
+    font-weight: 600;
+}
+
+/* ===== Tarjetas de prompts ===== */
+#prompts-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.prompt-card {
+    background-color: var(--azul);
+    border: 1px solid var(--indigo);
+    padding: 1rem 1.25rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .3);
+    animation: fadeIn .3s ease-in-out;
+}
+
+.prompt-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.prompt-card h3 {
+    margin: 0 0 .5rem;
+    color: var(--arena);
+    font-size: 1.1rem;
+    word-break: break-word;
+}
+
+.prompt-card p {
+    margin: 0;
+    white-space: pre-wrap;
+    word-break: break-word;
+    font-size: .95rem;
+    color: var(--crema);
+}
+
+.btn-delete {
+    flex-shrink: 0;
+    padding: .3rem .7rem;
+    border: 1px solid var(--indigo);
+    border-radius: 6px;
+    background-color: transparent;
+    color: var(--arena);
+    font: inherit;
+    font-size: .8rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: border-color .2s, background-color .2s;
+}
+
+.btn-delete:hover {
+    border-color: var(--arena);
+    background-color: var(--indigo);
+}
+
+.empty {
+    text-align: center;
+    color: rgba(245, 225, 206, .7);
+    font-size: .95rem;
+}
+
+/* ===== Formulario ===== */
+.prompt-form {
+    background-color: var(--azul);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid var(--indigo);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, .3);
+    margin-bottom: 2rem;
+}
+
+.prompt-form h2 {
+    margin-top: .5rem;
+    color: var(--crema);
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+label {
+    margin-bottom: .5rem;
+    font-size: .9rem;
+    color: var(--arena);
+}
+
+input,
+textarea {
+    background-color: var(--noche);
+    border: 1px solid var(--indigo);
+    color: var(--crema);
+    padding: .75rem;
+    border-radius: 6px;
+    font: inherit;
+    outline: none;
+    resize: vertical;
+    transition: border-color .2s;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: rgba(245, 225, 206, .45);
+}
+
+input:focus,
+textarea:focus {
+    border-color: var(--arena);
+}
+
+.btn-save {
+    width: 100%;
+    padding: .75rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    background-color: var(--arena);
+    color: var(--noche);
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color .2s;
+}
+
+.btn-save:hover {
+    background-color: var(--crema);
+}
+
+.btn-save:focus-visible,
+.btn-delete:focus-visible {
+    outline: 3px solid var(--arena);
+    outline-offset: 2px;
+}
+
+.btn-save:disabled {
+    opacity: .6;
+    cursor: wait;
+}
+
+.mensaje-form {
+    min-height: 1.2em;
+    margin: .75rem 0 0;
+    font-size: .9rem;
+    color: var(--arena);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monedero de Prompts</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body>
+    <div class="container">
+        <p id="status" class="status" role="status">Conectando con la base de datos…</p>
+        <div id="prompts-container"></div>
+
+        <form id="form-prompt" class="prompt-form" novalidate>
+            <h2>Nuevo Prompt</h2>
+            <div class="input-group">
+                <label for="prompt-name">Nombre del Prompt</label>
+                <input type="text" id="prompt-name" maxlength="120" placeholder="Ej. Depurador de código Python"
+                    autocomplete="off">
+            </div>
+            <div class="input-group">
+                <label for="prompt-text">Contenido del Prompt</label>
+                <textarea id="prompt-text" rows="3" placeholder="Escribe tu prompt aquí..."></textarea>
+            </div>
+            <button type="submit" id="btn-save" class="btn-save">Guardar en el Monedero</button>
+            <p id="mensaje-form" class="mensaje-form" role="alert"></p>
+        </form>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+
+</html>
